@@ -33,7 +33,7 @@ gh classroom clone student-repos -a 610664 -d submissions
 ```
 Las tareas se van a colocar en un directorio ```./submissions/<Tarea>```. Mueva las tareas para que queden a nivel de ```./submissions```. Puede borrar el directorio vacío ```<Tarea>```.
 
-## Revisión del plagio en tareas
+## Revisión del plagio en tareas - default
 
 Revisión general (sin considerar lenguaje específicio en tareas):
 
@@ -56,6 +56,16 @@ Revisión Java:
 make review-java
 ```
 Una vez finalizada la revisión ubique el archivo ```results.zip``` que se generaría en el directorio raíz.
+
+## Revisión del plagio en tareas - Considerando el Código Base
+
+Se puede solicitar que la herramienta haga una revisión más fina del plagio solicitando que omita revisión de plagio para el caso del Código Base:
+
+```
+git clone <URL-Código Base disponible en la organización CLA-XXX> BaseCode
+java -jar ./lib/jplag.jar --language=cpp ./submissions ./BaseCode
+```
+El ejemplo se muestra para revisión de plagio sin considerar Código Base para C++. Revise el archivo makefile para el comando específicio para otros lenguajes.
 
 ## Resultados de la revisión de plagio
 
